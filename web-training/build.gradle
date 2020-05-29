@@ -3,11 +3,11 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
-
+//おまじない
 group = 'example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
+//依存関係の出どころ
 repositories {
 	mavenCentral()
 }
@@ -23,9 +23,11 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     //testImplementation 'org.springframework.security:spring-security-test'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 
 test {
 	useJUnitPlatform()
 }
+

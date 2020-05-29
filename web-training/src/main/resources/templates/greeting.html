@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>あいさつ</title>
+
+</head>
+<body>
+
+<p>こんにちは!私の名前は<span th:text="${name}">名無し</span>です！
+<span th:text="${age}">名無し</span>歳です！</p>
+
+<formth:action="@{/greeting}" method="POST">
+	<input type="text" name="lastName">
+	<input type="text" name="firtsName>
+</form>
+
+</body>
+</html>
