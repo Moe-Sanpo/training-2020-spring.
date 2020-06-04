@@ -15,9 +15,7 @@ public class IndexController {
 	}
 
 	@GetMapping("greeting")
-	public String greeting(
-				Model model
-				) {
+	public String greeting(Model model) {
 					return "greeting";
 				}
 

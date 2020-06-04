@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>CD情報</title>
+
+</head>
+<body>
+
+	<h1>CD情報</h1>
+
+		<table>
+			<tbody>
+			<tr>
+				<th>id</th>
+				<td th:text="${music.id.value}">000</td>
+			</tr>
+			<tr>
+				<th>名前</th>
+				<td th:text="${music.name.value}">100</td>
+			</tr>
+			<tr>
+				<th>発売日</th>
+				<td th:text="${music.day.day}">1994-07-13</td>
+			</tr>
+			</tbody>
+		</table>
+
+<h1>作曲者</h1>
+		<table>
+			<tbody>
+			<tr>
+				<th>名前</th>
+				<td th:text="${compser.name.fullName()}">名無し</td>
+			</tr>
+			<tr>
+				<th>性別</th>
+				<td th:text="${compser.gender.label}">男</td>
+			</tr>
+			<tr>
+				<th>生年月日</th>
+				<td th:text="${compser.day.date}">1999-01-01</td>
+			</tr>
+			</tbody>
+		</table>
+<p th:text="#{home.welcome}">Welcome to our grocery store!</p>
+</body>
+</html>
