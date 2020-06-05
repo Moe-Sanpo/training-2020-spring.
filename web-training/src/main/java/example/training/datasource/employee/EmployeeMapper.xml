@@ -12,11 +12,6 @@
 		<result column="department_name" property="department.name.value"/>
 	</resultMap>
 
-	<resultMap id="EmployeeList" type="example.training.model.employee.Employee">
-		<id column="employee_id"  property="id.value" />
-		<result column="first_name" property="name.firstName"/>
-		<result column="last_name" property="name.lastName"/>
-	</resultMap>
 
 	<!-- id=メソッド名　resultMap=結果が入るクラス -->
 	<select id = "findById" resultMap="Employee">
@@ -36,12 +31,42 @@
 			employee2.employee_id = #{employeeId}
 	</select>
 
-	<select id = "findByList" resultMap="EmployeeList">
+	<select id = "listOf" resultMap="Employee">
 		SELECT
-			employee_id,
+			employee_id AS employee_id,
 			first_name,
-			last_name
+			last_name,
+			date_of_birth,
+			gender_type,
+			department.department_id AS department_id,
+			department_name
 		FROM
 			employee.employee2
+		INNER JOIN
+			employee.department ON employee2.department_id=department.department_id
+		ORDER BY
+			employee_id
+	</select>
+
+	<select id="listCriteriaOf" resultMap="Employee">
+			SELECT
+			employee_id AS employee_id,
+			first_name,
+			last_name,
+			date_of_birth,
+			gender_type,
+			department.department_id AS department_id,
+			department_name
+		FROM
+			employee.employee2
+		INNER JOIN
+			employee.department ON employee2.department_id=department.department_id
+		<where>
+			<if test="criteria.notEmpty">
+				department.department_name LIKE '%'|| #{criteria.departmentName} || '%'
+			</if>
+		</where>
+		ORDER BY
+			employee_id
 	</select>
 </mapper>

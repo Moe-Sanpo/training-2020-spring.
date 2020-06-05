@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import example.training.model.employee.Employee;
+import example.training.model.employee.EmployeeList;
 import example.training.model.employee.EmployeeRepositry;
+import example.training.model.employee.criteria.EmployeeListCriteria;
 import example.training.model.fandamental.exception.ResourceNotFoundException;
 
 @Service
@@ -15,7 +17,6 @@ public class EmployeeServiceimpl implements EmployeeService {
 
 	@Override
 	public Employee findById(Integer employeeId) {
-		// TODO 自動生成されたメソッド・スタブ
 
 		Employee employee =employeeRepositry.findById(employeeId);
 		if(employee == null) {
@@ -25,10 +26,17 @@ public class EmployeeServiceimpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee findByList() {
-		// TODO 自動生成されたメソッド・スタブ
-		return employeeRepositry.findByList();
+	public EmployeeList listOf() {
+		return employeeRepositry.listOf();
 	}
+
+	@Override
+	public EmployeeList listOf(EmployeeListCriteria criteria) {
+
+		return employeeRepositry.listOf(criteria);
+	}
+
+
 
 }
 

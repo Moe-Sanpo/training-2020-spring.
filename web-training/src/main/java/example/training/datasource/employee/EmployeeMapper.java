@@ -1,13 +1,17 @@
 package example.training.datasource.employee;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import example.training.model.employee.Employee;
+import example.training.model.employee.criteria.EmployeeListCriteria;
 
 @Mapper
 public interface EmployeeMapper {
 
 	Employee findById(@Param("employeeId") Integer employeeId);
-	Employee findByList();
+	List<Employee> listOf();
+	List<Employee> listCriteriaOf(@Param ("criteria")EmployeeListCriteria criteria);
 }

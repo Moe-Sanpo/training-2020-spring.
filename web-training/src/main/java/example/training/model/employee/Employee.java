@@ -24,7 +24,6 @@ public class Employee {
 
 	public Employee() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public EmployeeId getId() {
