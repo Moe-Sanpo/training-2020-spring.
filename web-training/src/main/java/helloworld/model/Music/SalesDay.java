@@ -12,7 +12,6 @@ public class SalesDay {
 
 	public SalesDay() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public LocalDate getDay() {

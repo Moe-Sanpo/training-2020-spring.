@@ -14,7 +14,6 @@ public class Department {
 
 	public Department() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 
@@ -24,6 +23,15 @@ public class Department {
 
 	public DepartmentName getName() {
 		return name;
+	}
+
+	public void setId(DepartmentId id) {
+		this.id = id;
+	}
+
+
+	public void setName(DepartmentName name) {
+		this.name = name;
 	}
 
 

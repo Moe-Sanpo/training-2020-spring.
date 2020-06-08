@@ -13,7 +13,6 @@ public class EmployeeName {
 	public EmployeeName() {
 		this.firstName = "";
 		this.lastName = "";
-	// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public String fullName() {

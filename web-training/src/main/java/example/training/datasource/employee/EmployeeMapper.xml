@@ -63,10 +63,11 @@
 			employee.department ON employee2.department_id=department.department_id
 		<where>
 			<if test="criteria.notEmpty">
-				department.department_name LIKE '%'|| #{criteria.departmentName} || '%'
+				department.department_Id = #{criteria.departmentId.value}
 			</if>
 		</where>
 		ORDER BY
 			employee_id
 	</select>
+
 </mapper>

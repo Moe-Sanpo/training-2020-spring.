@@ -1,37 +1,40 @@
 package example.training.model.employee.criteria;
 
+import example.training.model.department.DepartmentId;
+
 public class EmployeeListCriteria {
 
-	private String departmentName;
+	private  DepartmentId departmentId;
 
-	public EmployeeListCriteria(String departmentName) {
+	public EmployeeListCriteria(DepartmentId departmentId) {
 		super();
-		this.departmentName = departmentName;
+		this.departmentId = departmentId;
 	}
 
 	public EmployeeListCriteria() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
-	public String getDepartmentName() {
-		return departmentName;
+	public DepartmentId getDepartmentId() {
+		return departmentId;
 	}
 
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
+	public void setDepartmentId(DepartmentId departmentId) {
+		this.departmentId = departmentId;
 	}
 
 	@Override
 	public String toString() {
-		return "EmployeeListCriteria [departmentName=" + departmentName + "]";
+		return "EmployeeListCriteria [departmentId=" + departmentId + "]";
 	}
 
 	public boolean isEmpty() {
-		return departmentName.isEmpty();
+
+		return departmentId.isEmpty();
 	}
 
 	public boolean notEmpty(){
-		return !departmentName.isEmpty();
+		return !departmentId.isEmpty();
 	}
+
 }

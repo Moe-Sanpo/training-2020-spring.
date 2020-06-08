@@ -10,7 +10,6 @@ public class DepartmentId {
 
 	public DepartmentId() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public Integer getValue() {
@@ -26,5 +25,16 @@ public class DepartmentId {
 		return String.format("DepartmentId [value=%s]", value);
 	}
 
+	public boolean isEmpty() {
+		if(value == null) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean notEmpty(){
+		return !isEmpty();
+	}
 
 }
+

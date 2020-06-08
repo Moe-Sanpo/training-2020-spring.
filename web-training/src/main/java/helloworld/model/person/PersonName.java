@@ -14,7 +14,6 @@ public class PersonName {
 		super();
 		this.firstName="";
 		this.firstName="";
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public String fullName() {

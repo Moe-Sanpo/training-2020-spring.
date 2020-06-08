@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import example.training.model.department.DepartmentList;
 import example.training.model.employee.Employee;
 import example.training.model.employee.EmployeeList;
 import example.training.model.employee.criteria.EmployeeListCriteria;
 import example.training.model.employee.criteria.EmployeeListCriteriaFactory;
+import example.training.service.department.DepartmentService;
 import example.training.service.employee.EmployeeService;
 
 @Controller
@@ -23,23 +25,28 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	@Autowired
 	private EmployeeListCriteriaFactory criteriaFactory;
+	@Autowired
+	private DepartmentService departmentService;
 
 	@GetMapping
 	public String employees(Model model) {
+		DepartmentList departmentList = departmentService.listOf();
 		EmployeeListCriteria criteria = criteriaFactory.create();
 		EmployeeList employeeList = employeeService.listOf();
+		model.addAttribute("departmentList", departmentList);
 		model.addAttribute("employeeList",employeeList);
 		model.addAttribute("criteria",criteria );
 		return "employee/employee-list";
 	}
 
 
-	@PostMapping()
+	@PostMapping("/search")
 	public String employeesSerch(@ModelAttribute EmployeeListCriteria criteria,Model model) {
-
+		DepartmentList departmentList = departmentService.listOf();
 		EmployeeList employeeList = employeeService.listOf(criteria);
 		model.addAttribute("employeeList",employeeList);
 		model.addAttribute("criteria",criteria );
+		model.addAttribute("departmentList", departmentList);
 		return "employee/employee-list";
 	}
 

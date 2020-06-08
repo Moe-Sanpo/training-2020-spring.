@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeList {
+
 	private List<Employee> values;
 
 	public EmployeeList(List<Employee> values) {
@@ -11,9 +12,8 @@ public class EmployeeList {
 		this.values = values;
 	}
 
-
 	public EmployeeList() {
-		this.values=new ArrayList<Employee>();
+		this.values = new ArrayList<Employee>();
 	}
 
 	public List<Employee> getValues() {
@@ -28,6 +28,9 @@ public class EmployeeList {
 	public String toString() {
 		return String.format("EmployeeList [values=%s]", values);
 	}
+	public boolean isEmpty() {
 
+		return values.isEmpty();
+	}
 
 }

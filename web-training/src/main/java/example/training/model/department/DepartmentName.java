@@ -11,7 +11,6 @@ public class DepartmentName {
 
 	public DepartmentName() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public String getValue() {

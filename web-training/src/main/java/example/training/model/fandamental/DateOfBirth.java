@@ -12,7 +12,6 @@ public class DateOfBirth {
 
 	public DateOfBirth() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public LocalDate getValue() {

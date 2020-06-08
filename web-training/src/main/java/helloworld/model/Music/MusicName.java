@@ -11,7 +11,6 @@ public class MusicName {
 
 	public MusicName() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public String getValue() {
@@ -26,6 +25,6 @@ public class MusicName {
 	public String toString() {
 		return "MusicName [value=" + value + "]";
 	}
-	
-	
+
+
 }

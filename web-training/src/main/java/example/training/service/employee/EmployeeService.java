@@ -10,6 +10,4 @@ public interface EmployeeService {
 	public EmployeeList listOf();
 	public EmployeeList listOf(EmployeeListCriteria criteria);
 
-
-
 }

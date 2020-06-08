@@ -15,7 +15,6 @@ public class Music {
 
 	public Music() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public MusicName getName() {

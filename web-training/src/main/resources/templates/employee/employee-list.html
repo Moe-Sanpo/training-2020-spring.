@@ -9,20 +9,34 @@
 <body>
 
 	<h1>社員一覧</h1>
-	<form action="" th:object="${criteria}" method="post">
-			<p>部署名<input type=text th:field="*{departmentName}" name=departmentName></p>
+	<form th:action="@{/employee/search}" method="post" th:object="${criteria}">
+
+			<label for="departmentId">部署名</label>
+
+			<select name="departmentId" id="departmentId" th:field="*{departmentId.value}">
+				<option value="">---</option>
+				<option th:each="departmentList:${departmentList.values}"
+						th:value="${departmentList.id.value}"
+						th:text="${departmentList.name.value}"
+						th:selected="${departmentList.id.value == criteria.departmentId.value}">
+			</select>
+
 			<input type=submit name=submit value="検索">
+
 			</form>
 		<table>
 			<thead>
-				<tr th:each="employeeList : ${employeeList.values}">
-				<td th:text="${employeeList.id.value}">100</td>
-				<td><a th:href="@{/employee/{employeeId}(employeeId=${employeeList.id.value})}"
-					th:text="${employeeList.name.fullName()}">太郎太郎</a></td>
-				<td th:text="${employeeList.department.name.value}">システム開発</td>
+				<tr th:each="employeeList:${employeeList.values}" th:object="${employeeList}">
+				<td th:text="*{id.value}">100</td>
+				<td><a th:href="@{/employee/{employeeId}(employeeId=*{id.value})}"
+					th:text="*{name.fullName()}">太郎太郎</a></td>
+				<td th:text="*{department.name.value}">システム開発</td>
 			</tr>
 			</tbody>
 		</table>
+		<div th:if="${employeeList.isEmpty()}">
+			<p>該当する社員情報はありません</p>
+		</div>
 		<p><a th:href="@{http://localhost:8181/training/employee}">一覧へ</a></p>
 </body>
 </html>

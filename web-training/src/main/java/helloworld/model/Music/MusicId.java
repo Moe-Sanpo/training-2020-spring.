@@ -10,7 +10,6 @@ public class MusicId {
 
 	public MusicId() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public Integer getValue() {

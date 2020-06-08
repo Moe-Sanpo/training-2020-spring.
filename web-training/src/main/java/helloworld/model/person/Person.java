@@ -13,7 +13,6 @@ public class Person {
 
 	public Person() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public PersonName getName() {

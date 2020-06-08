@@ -16,7 +16,6 @@ public class EmployeeDepartment {
 
 	public EmployeeDepartment() {
 		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public DepartmentId getId() {
