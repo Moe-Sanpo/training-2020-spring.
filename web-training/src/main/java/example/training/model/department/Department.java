@@ -11,11 +11,10 @@ public class Department {
 		this.name = name;
 	}
 
-
 	public Department() {
-		super();
+		this.id = new DepartmentId();
+		this.name = new DepartmentName();
 	}
-
 
 	public DepartmentId getId() {
 		return id;

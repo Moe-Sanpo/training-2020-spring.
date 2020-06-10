@@ -28,25 +28,20 @@ public class EmployeeController {
 	@Autowired
 	private DepartmentService departmentService;
 
+
+
 	@GetMapping
 	public String employees(Model model) {
-		DepartmentList departmentList = departmentService.listOf();
+
 		EmployeeListCriteria criteria = criteriaFactory.create();
-		EmployeeList employeeList = employeeService.listOf();
-		model.addAttribute("departmentList", departmentList);
-		model.addAttribute("employeeList",employeeList);
-		model.addAttribute("criteria",criteria );
+		prepareEmployee(criteria, model);
 		return "employee/employee-list";
 	}
 
 
-	@PostMapping("/search")
-	public String employeesSerch(@ModelAttribute EmployeeListCriteria criteria,Model model) {
-		DepartmentList departmentList = departmentService.listOf();
-		EmployeeList employeeList = employeeService.listOf(criteria);
-		model.addAttribute("employeeList",employeeList);
-		model.addAttribute("criteria",criteria );
-		model.addAttribute("departmentList", departmentList);
+	@PostMapping
+	public String employeesSearch(@ModelAttribute EmployeeListCriteria criteria,Model model) {
+		prepareEmployee(criteria, model);
 		return "employee/employee-list";
 	}
 
@@ -56,6 +51,14 @@ public class EmployeeController {
 		Employee employee = employeeService.findById(employeeId);
 		model.addAttribute("employee", employee);
 		return "employee/employee";
+	}
+
+	private void prepareEmployee(EmployeeListCriteria criteria,Model model) {
+		DepartmentList departmentList = departmentService.listOf();
+		EmployeeList employeeList = employeeService.listOf(criteria);
+		model.addAttribute("employeeList",employeeList);
+		model.addAttribute("criteria",criteria );
+		model.addAttribute("departmentList", departmentList);
 	}
 
 

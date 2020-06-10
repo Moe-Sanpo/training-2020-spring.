@@ -25,10 +25,6 @@ public class EmployeeServiceimpl implements EmployeeService {
 		return employee;
 	}
 
-	@Override
-	public EmployeeList listOf() {
-		return employeeRepositry.listOf();
-	}
 
 	@Override
 	public EmployeeList listOf(EmployeeListCriteria criteria) {

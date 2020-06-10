@@ -9,7 +9,6 @@ public class DepartmentId {
 	}
 
 	public DepartmentId() {
-		super();
 	}
 
 	public Integer getValue() {

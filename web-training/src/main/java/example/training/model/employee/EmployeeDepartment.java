@@ -15,7 +15,8 @@ public class EmployeeDepartment {
 
 
 	public EmployeeDepartment() {
-		super();
+		this.id = new DepartmentId();
+		this.name = new DepartmentName();
 	}
 
 	public DepartmentId getId() {
@@ -26,10 +27,20 @@ public class EmployeeDepartment {
 		return name;
 	}
 
+	public void setId(DepartmentId id) {
+		this.id = id;
+	}
+
+
+	public void setName(DepartmentName name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("EmployeeDepartment [Id=%s, name=%s]", id, name);
 	}
+
 
 
 }

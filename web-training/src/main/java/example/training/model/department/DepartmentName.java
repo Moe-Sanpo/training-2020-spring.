@@ -10,7 +10,7 @@ public class DepartmentName {
 	}
 
 	public DepartmentName() {
-		super();
+		this.value = "";
 	}
 
 	public String getValue() {

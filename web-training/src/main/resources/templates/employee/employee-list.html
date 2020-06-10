@@ -9,7 +9,7 @@
 <body>
 
 	<h1>社員一覧</h1>
-	<form th:action="@{/employee/search}" method="post" th:object="${criteria}">
+	<form th:action="@{/employee}" method="post" th:object="${criteria}">
 
 			<label for="departmentId">部署名</label>
 
@@ -20,6 +20,13 @@
 						th:text="${departmentList.name.value}"
 						th:selected="${departmentList.id.value == criteria.departmentId.value}">
 			</select>
+
+		<p>表示順:社員ID</p>
+			 <input	type="radio"
+					th:each="option:*{employeeIdPriority.options()}"
+					th:field="*{employeeIdPriority}"
+					th:value="${option.key}"
+					th:text="${option.value}">
 
 			<input type=submit name=submit value="検索">
 

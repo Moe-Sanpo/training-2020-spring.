@@ -9,6 +9,7 @@ public class EmployeeId {
 	}
 
 	public EmployeeId() {
+
 	}
 
 	public Integer getValue() {

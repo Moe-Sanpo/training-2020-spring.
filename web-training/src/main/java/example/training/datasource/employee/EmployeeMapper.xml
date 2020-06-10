@@ -12,7 +12,6 @@
 		<result column="department_name" property="department.name.value"/>
 	</resultMap>
 
-
 	<!-- id=メソッド名　resultMap=結果が入るクラス -->
 	<select id = "findById" resultMap="Employee">
 		SELECT
@@ -31,23 +30,6 @@
 			employee2.employee_id = #{employeeId}
 	</select>
 
-	<select id = "listOf" resultMap="Employee">
-		SELECT
-			employee_id AS employee_id,
-			first_name,
-			last_name,
-			date_of_birth,
-			gender_type,
-			department.department_id AS department_id,
-			department_name
-		FROM
-			employee.employee2
-		INNER JOIN
-			employee.department ON employee2.department_id=department.department_id
-		ORDER BY
-			employee_id
-	</select>
-
 	<select id="listCriteriaOf" resultMap="Employee">
 			SELECT
 			employee_id AS employee_id,
@@ -62,12 +44,18 @@
 		INNER JOIN
 			employee.department ON employee2.department_id=department.department_id
 		<where>
-			<if test="criteria.notEmpty">
+			<if test="criteria.departmentId.notEmpty">
 				department.department_Id = #{criteria.departmentId.value}
 			</if>
 		</where>
-		ORDER BY
-			employee_id
+		<choose>
+			<when test="criteria.employeeIdPriority.isDesc()">
+				ORDER BY employee_id DESC
+			</when>
+			<otherwise>
+				ORDER BY employee_id ASC
+			</otherwise>
+		</choose>
 	</select>
 
 </mapper>

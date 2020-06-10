@@ -20,11 +20,6 @@ public class EmployeeDataSource implements EmployeeRepositry{
 	}
 
 	@Override
-	public EmployeeList listOf() {
-		return new EmployeeList(employeeMapper.listOf());
-	}
-
-	@Override
 	public EmployeeList listOf(EmployeeListCriteria criteria) {
 		return new EmployeeList(employeeMapper.listCriteriaOf(criteria));
 	}

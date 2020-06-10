@@ -1,18 +1,25 @@
 package example.training.model.employee.criteria;
 
 import example.training.model.department.DepartmentId;
+import example.training.model.fandamental.Gender;
 
 public class EmployeeListCriteria {
 
-	private  DepartmentId departmentId;
+	private DepartmentId departmentId;
+	private EmployeeIdPriority employeeIdPriority;
 
-	public EmployeeListCriteria(DepartmentId departmentId) {
+
+	public EmployeeListCriteria(DepartmentId departmentId, EmployeeIdPriority employeeIdPriority) {
 		super();
 		this.departmentId = departmentId;
+		this.employeeIdPriority = employeeIdPriority;
+
 	}
 
 	public EmployeeListCriteria() {
-		super();
+		employeeIdPriority = EmployeeIdPriority.ASC;
+		departmentId = new DepartmentId();
+
 	}
 
 	public DepartmentId getDepartmentId() {
@@ -23,10 +30,16 @@ public class EmployeeListCriteria {
 		this.departmentId = departmentId;
 	}
 
-	@Override
-	public String toString() {
-		return "EmployeeListCriteria [departmentId=" + departmentId + "]";
+
+	public EmployeeIdPriority getEmployeeIdPriority() {
+		return employeeIdPriority;
 	}
+
+	public void setEmployeeIdPriority(EmployeeIdPriority employeeIdPriority) {
+		this.employeeIdPriority = employeeIdPriority;
+	}
+
+
 
 	public boolean isEmpty() {
 
@@ -36,5 +49,18 @@ public class EmployeeListCriteria {
 	public boolean notEmpty(){
 		return !departmentId.isEmpty();
 	}
+
+	public boolean isDesc() {
+		return employeeIdPriority.isDesc();
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "EmployeeListCriteria [departmentId=" + departmentId + ", employeeIdPriority=" + employeeIdPriority
+				+ "]";
+	}
+
 
 }

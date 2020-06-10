@@ -23,7 +23,11 @@ public class Employee {
 
 
 	public Employee() {
-		super();
+		this.id = new EmployeeId();
+		this.name = new EmployeeName();
+		this.gender = Gender.MALE;
+		this.dateOfBirth = new DateOfBirth();
+		this.department = new EmployeeDepartment();
 	}
 
 	public EmployeeId getId() {
@@ -46,16 +50,37 @@ public class Employee {
 		return dateOfBirth;
 	}
 
-
 	public EmployeeDepartment getDepartment() {
 		return department;
 	}
+
+	public void setId(EmployeeId id) {
+		this.id = id;
+	}
+
+
+	public void setName(EmployeeName name) {
+		this.name = name;
+	}
+
+
+	public void setDateOfBirth(DateOfBirth dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+
+	public void setDepartment(EmployeeDepartment department) {
+		this.department = department;
+	}
+
+
 
 	@Override
 	public String toString() {
 		return String.format("Employee [id=%s, name=%s, gender=%s, dateOfBirth=%s, department=%s]", id, name, gender,
 				dateOfBirth, department);
 	}
+
 
 
 

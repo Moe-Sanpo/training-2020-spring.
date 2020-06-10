@@ -12,7 +12,7 @@ import example.training.model.employee.criteria.EmployeeListCriteria;
 public interface EmployeeMapper {
 
 	Employee findById(@Param("employeeId") Integer employeeId);
-	List<Employee> listOf();
+
 	List<Employee> listCriteriaOf(@Param ("criteria")EmployeeListCriteria criteria);
 
 }
