@@ -32,7 +32,6 @@ public class EmployeeController {
 
 	@GetMapping
 	public String employees(Model model) {
-
 		EmployeeListCriteria criteria = criteriaFactory.create();
 		prepareEmployee(criteria, model);
 		return "employee/employee-list";

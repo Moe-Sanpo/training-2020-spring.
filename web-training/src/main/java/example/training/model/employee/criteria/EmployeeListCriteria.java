@@ -1,7 +1,7 @@
 package example.training.model.employee.criteria;
 
 import example.training.model.department.DepartmentId;
-import example.training.model.fandamental.Gender;
+
 
 public class EmployeeListCriteria {
 
