@@ -3,6 +3,8 @@ package example.training.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +16,7 @@ import example.training.model.employee.EmployeeFactory;
 import example.training.service.department.DepartmentService;
 
 @Controller
-@RequestMapping("employee")
+@RequestMapping("employee/register")
 public class EmployeeRegisterController {
 
 	@Autowired
@@ -23,7 +25,7 @@ public class EmployeeRegisterController {
 	private EmployeeFactory employeeFactory;
 
 
-	@GetMapping("/register")
+	@GetMapping
 	public String form(Model model) {
 
 		Employee employee = employeeFactory.create();
@@ -35,13 +37,15 @@ public class EmployeeRegisterController {
 		return "employee/form";
 	}
 
-	@PostMapping("/register")
-	public String comfirm(@ModelAttribute Employee employee,Model model) {
+	@PostMapping
+	public String comfirm(@ModelAttribute @Validated Employee employee,BindingResult result,Model model) {
 		DepartmentList departmentList = departmentService.listOf();
 
 		model.addAttribute("departmentList", departmentList);
 		model.addAttribute("employee", employee);
-
-		return "employee/form";
+		if(result.hasErrors()) {
+			return "employee/form";
+		}
+		return "employee/confirm";
 	}
 }

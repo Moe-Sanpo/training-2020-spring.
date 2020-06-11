@@ -2,11 +2,16 @@ package example.training.model.fandamental;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class DateOfBirth {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull
+	@Past
 	private LocalDate value;
 
 	public DateOfBirth(LocalDate value) {

@@ -1,6 +1,9 @@
 package example.training.model.department;
 
+import javax.validation.constraints.NotNull;
+
 public class DepartmentId {
+	@NotNull
 	private Integer value;
 
 	public DepartmentId(Integer value) {

@@ -8,11 +8,15 @@
 	<body>
 		<h1>登録情報</h1>
 		<form th:action="@{/employee/register}" method="post" th:object="${employee}">
-			<p><label for="employeeLastName">氏名：姓</label>
-				<input type="text" name="employeeLastName" th:field = *{name.lastName} ></p>
 
-			<p><label for="employeeFirstName">氏名：名</label>
-				<input type="text" name="employeeFirstName" th:field = *{name.firstName}></p>
+			<p style="color:red" th:if="${#fields.hasErrors('name.lastName')}" th:errors="*{name.lastName}" ></p>
+			<p><span style="color:red">*</span><label for="name.lastName">氏名：姓</label>
+				<input type="text"  th:field = *{name.lastName} ></p>
+
+			<p style="color:red" th:if="${#fields.hasErrors('name.firstName')}" th:errors="*{name.firstName}"></p>
+			<p><span style="color:red">*</span><label for="name.firstName">氏名：名</label>
+				<input type="text"  th:field = *{name.firstName}></p>
+
 
 			<p><label for="gender">性別</label>
 				<input 	type="radio"
@@ -21,10 +25,13 @@
 						th:text="${gender.value}"
 						th:value="${gender.key}"></p>
 
-			<p><label for="dateOfBirth">生年月日</label>
+			<p style="color:red" th:if="${#fields.hasErrors('dateOfBirth.value')}" th:errors="*{dateOfBirth.value}"></p>
+			<p><span style="color:red">*</span><label for="dateOfBirth">生年月日</label>
 				<input type="date" name="dateOfBirth" value="dateOfBirth" th:field ="*{dateOfBirth.value}"></p>
 
-			<p><label for="department">所属部署</label>
+
+			<p style="color:red" th:if="${#fields.hasErrors('department.id.value')}" th:errors="*{department.id.value}"></p>
+			<p><span style="color:red">*</span><label for="department">所属部署</label>
 				<select name="departmentId" id="departmentId" th:field="*{department.id.value}">
 					<option value="">---</option>
 					<option th:each="departmentList:${departmentList.values}"
@@ -32,6 +39,7 @@
 							th:text="${departmentList.name.value}"
 							th:selected="${departmentList.id.value == employee.id.value}">
 				</select></p>
+
 
 			<p><input type="submit" name="submit" value="確認"><p>
 		</form>
