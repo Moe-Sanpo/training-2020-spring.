@@ -7,7 +7,7 @@
 
 </head>
 <body>
-
+	<p th:text="${#dates.format(date)}">
 	<h1>社員一覧</h1>
 	<form th:action="@{/employee}" method="post" th:object="${criteria}">
 
@@ -38,13 +38,14 @@
 				<td><a th:href="@{/employee/{employeeId}(employeeId=*{id.value})}"
 					th:text="*{name.fullName()}">太郎太郎</a></td>
 				<td th:text="*{department.name.value}">システム開発</td>
+				<td><a th:href="@{/employee/delete/{employeeId}(employeeId=*{id.value})}">削除</a></td>
 			</tr>
 			</tbody>
 		</table>
 		<div th:if="${employeeList.isEmpty()}">
 			<p>該当する社員情報はありません</p>
 		</div>
-		<p><a th:href="@{http://localhost:8181/training/employee}">一覧へ</a></p>
-		<p><a th:href="@{http://localhost:8181/training/employee/register}">登録画面へ</a></p>
+		<p><a th:href="@{/employee}">一覧へ</a></p>
+		<p><a th:href="@{/employee/register}">登録画面へ</a></p>
 </body>
 </html>

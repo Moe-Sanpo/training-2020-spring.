@@ -33,6 +33,26 @@ public class EmployeeServiceimpl implements EmployeeService {
 	}
 
 
+	@Override
+	public void register(Employee employee) {
+		employeeRepositry.register(employee);
+	}
+
+
+	@Override
+	public void modify(Employee employee) {
+		employeeRepositry.modify(employee);
+
+	}
+
+
+	@Override
+	public void delete(Employee employee) {
+		employeeRepositry.delete(employee);
+
+	}
+
+
 
 }
 

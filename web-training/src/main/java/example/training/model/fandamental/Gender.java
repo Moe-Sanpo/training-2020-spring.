@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public enum Gender {
+
 	MALE("男性"),
 	FEMALE("女性"),
 	OTHER("その他");

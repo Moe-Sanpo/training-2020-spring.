@@ -12,6 +12,15 @@
 		<result column="department_name" property="department.name.value"/>
 	</resultMap>
 
+	<resultMap id="EmployeeId" type="example.training.model.employee.EmployeeId">
+		<result column="employee_id_seq"  property="value" />
+	</resultMap>
+
+
+	<select id="nextId" resultMap="EmployeeId"><!--  resultMap="EmployeeId"-->
+		SELECT nextval('employee.employee_id_seq') employee_id_seq;
+	</select>
+
 	<!-- id=メソッド名　resultMap=結果が入るクラス -->
 	<select id = "findById" resultMap="Employee">
 		SELECT
@@ -31,7 +40,7 @@
 	</select>
 
 	<select id="listCriteriaOf" resultMap="Employee">
-			SELECT
+		SELECT
 			employee_id AS employee_id,
 			first_name,
 			last_name,
@@ -57,5 +66,46 @@
 			</otherwise>
 		</choose>
 	</select>
+
+	<insert id="register">
+		INSERT INTO employee.employee2 (
+			employee_id,
+			first_name,
+			last_name,
+			date_of_birth,
+			department_id,
+			gender_type)
+		VALUES(
+			#{employeeId.value},
+			#{employee.name.firstName},
+			#{employee.name.lastName},
+			#{employee.dateOfBirth.value},
+			#{employee.department.id.value},
+			#{employee.gender})
+	</insert>
+
+	<update id="modify">
+		UPDATE employee.employee2 SET (
+			employee_id,
+			first_name,
+			last_name,
+			date_of_birth,
+			department_id,
+			gender_type)
+			=
+		  	(#{employee.id.value},
+		  	#{employee.name.firstName},
+			#{employee.name.lastName},
+			#{employee.dateOfBirth.value},
+			#{employee.department.id.value},
+			#{employee.gender})
+		WHERE employee_id = #{employee.id.value}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM employee.employee2
+		WHERE employee_id = #{employee.id.value}
+	</delete>
+
 
 </mapper>

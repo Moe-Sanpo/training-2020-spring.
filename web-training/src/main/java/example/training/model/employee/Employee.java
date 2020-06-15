@@ -11,6 +11,7 @@ public class Employee {
 
 	@Valid
 	private EmployeeName name;
+	//@NotNull
 	private Gender gender;
 	@Valid
 	private DateOfBirth dateOfBirth;

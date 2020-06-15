@@ -6,5 +6,8 @@ public interface EmployeeRepositry {
 
 	public Employee findById(Integer employeId);
 	public EmployeeList listOf(EmployeeListCriteria criteria);
+	public void register(Employee employee);
+	public void modify(Employee employee);
+	public void delete(Employee employee);
 
 }

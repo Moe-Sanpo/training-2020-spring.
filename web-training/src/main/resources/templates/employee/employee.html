@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<th>生年月日</th>
-				<td th:text="${employee.dateOfBirth.value}">1994-07-13</td>
+				<td th:text="${#temporals.format(employee.dateOfBirth.value,'y年M月d日')}">1994-07-13</td>
 			</tr>
 			<tr>
 				<th>所属部署</th>
@@ -34,6 +34,8 @@
 			</tr>
 			</tbody>
 		</table>
+		<input type="button" onclick="history.back()" value="戻る" />
+		<p><a th:href="@{http://localhost:8181/training/employee/modify/{employeeId}(employeeId=${employee.id.value})}">編集画面へ</a></p>
 		<p><a th:href="@{http://localhost:8181/training/employee}">一覧へ</a></p>
 </body>
 </html>

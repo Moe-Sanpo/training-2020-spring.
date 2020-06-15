@@ -29,11 +29,13 @@ public class DepartmentList {
 		return "DepartmentList [values=" + values + "]";
 	}
 
-
-
-
-
-
-
+	public DepartmentName departmentNameById(Integer id) {
+		for(Department department : values) {
+			if(id.equals(department.getId().getValue())) {
+				return department.getName();
+			}
+		}
+		return new DepartmentName();
+	}
 
 }

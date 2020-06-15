@@ -25,6 +25,23 @@
 						th:text="${gender.value}"
 						th:value="${gender.key}"></p>
 
+			<!-- <p style="color:red" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></p>
+			<label for="gender">性別</label>
+				<input 	type="radio"
+						th:field="*{gender}"
+						th:text="男性"
+						th:value="MALE">
+
+				<input 	type="radio"
+						th:field="*{gender}"
+						th:text="女性"
+						th:value="FEMALE">
+
+				<input 	type="radio"
+						th:field="*{gender}"
+						th:text="その他"
+						th:value="OTHER">-->
+
 			<p style="color:red" th:if="${#fields.hasErrors('dateOfBirth.value')}" th:errors="*{dateOfBirth.value}"></p>
 			<p><span style="color:red">*</span><label for="dateOfBirth">生年月日</label>
 				<input type="date" name="dateOfBirth" value="dateOfBirth" th:field ="*{dateOfBirth.value}"></p>
@@ -40,10 +57,12 @@
 							th:selected="${departmentList.id.value == employee.id.value}">
 				</select></p>
 
-
-			<p><input type="submit" name="submit" value="確認"><p>
+			<input type="submit" name="submit" value="確認">
+			<input type="button" onclick="history.back()" value="戻る" />
 		</form>
 
+
+		<p><a th:href="@{http://localhost:8181/training/employee/register}">リセット</a>
 		<p><a th:href="@{http://localhost:8181/training/employee}">一覧へ</a></p>
 	</body>
 </html>

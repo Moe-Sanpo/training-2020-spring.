@@ -6,10 +6,10 @@ import javax.validation.constraints.Size;
 public class EmployeeName {
 
 	@NotBlank
-	@Size(max = 100)
+	@Size(max = 10 ,min=1)
 	private String firstName;
 	@NotBlank
-	@Size(max = 100)
+	@Size(max = 10 ,min=1)
 	private String lastName;
 
 	public EmployeeName(String firstName, String lastName) {
