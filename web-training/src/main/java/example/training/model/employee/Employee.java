@@ -1,11 +1,15 @@
 package example.training.model.employee;
 
+import java.io.Serializable;
+
 import javax.validation.Valid;
 
 import example.training.model.fandamental.DateOfBirth;
 import example.training.model.fandamental.Gender;
 
-public class Employee {
+public class Employee implements Serializable{
+
+	private static final long serialVersionUID = -8528938337409833676L;
 
 	private EmployeeId id;
 
@@ -79,7 +83,6 @@ public class Employee {
 	public void setDepartment(EmployeeDepartment department) {
 		this.department = department;
 	}
-
 
 
 	@Override

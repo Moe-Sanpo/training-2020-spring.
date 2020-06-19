@@ -1,11 +1,16 @@
 package example.training.model.employee;
 
+import java.io.Serializable;
+
 import javax.validation.Valid;
 
 import example.training.model.department.DepartmentId;
 import example.training.model.department.DepartmentName;
 
-public class EmployeeDepartment {
+public class EmployeeDepartment implements Serializable {
+
+
+	private static final long serialVersionUID = 1791340546616556975L;
 
 	@Valid
 	private DepartmentId id;

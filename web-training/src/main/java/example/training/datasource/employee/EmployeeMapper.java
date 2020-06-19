@@ -17,5 +17,5 @@ public interface EmployeeMapper {
 	EmployeeId nextId();
 	void register(@Param("employeeId")EmployeeId employeeId ,@Param("employee")Employee employee);
 	void modify(@Param("employee")Employee employee);
-	void delete(@Param("employee")Employee employee);
+	void delete(@Param("employeeId")EmployeeId id);
 }

@@ -1,5 +1,6 @@
 package example.training.model.fandamental;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
@@ -7,7 +8,9 @@ import javax.validation.constraints.Past;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class DateOfBirth {
+public class DateOfBirth implements Serializable {
+
+	private static final long serialVersionUID = -6116889092582373699L;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull

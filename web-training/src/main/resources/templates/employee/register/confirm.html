@@ -27,14 +27,9 @@
 			</tr>
 			</tbody>
 		</table>
-		<form th:action="@{/employee/register/execute}" method="post" th:object="${employee}">
-			<input type="hidden" th:field="*{name.firstName}" >
-			<input type="hidden" th:field="*{name.lastName}">
-			<input type="hidden" th:field="*{gender}">
-			<input type="hidden" th:field="*{dateOfBirth.value}">
-			<input type="hidden" th:field="*{department.id.value}" >
+	<form th:action="@{/employee/register/execute}" method="post">
 			<input type="submit" name="submit" value="登録">
-			<input type="button" onclick="history.back()" value="戻る" />
+			<input type="button" th:onclick="|location.href='@{/employee/register/back}'|" value="戻る"/>
 		</form>
 		<p><a th:href="@{http://localhost:8181/training/employee}">一覧へ</a></p>
 	</body>

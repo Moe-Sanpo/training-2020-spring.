@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+ <body>
+ 	<div th:fragment="menu">
+ 	<hr>
+ 		<p><b>ユーザーID:</b><span sec:authentication="principal.username"></span></p>
+
+ 		<p><b>ユーザー名:</b><span sec:authentication="principal.name.value"></span></p>
+
+ 		<p><a th:href="@{/logout}">ログアウト</a></p>
+ 	</div>
+ </body>
+</html>

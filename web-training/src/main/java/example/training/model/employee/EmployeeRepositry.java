@@ -8,6 +8,6 @@ public interface EmployeeRepositry {
 	public EmployeeList listOf(EmployeeListCriteria criteria);
 	public void register(Employee employee);
 	public void modify(Employee employee);
-	public void delete(Employee employee);
+	public void delete(Integer employeeId);
 
 }

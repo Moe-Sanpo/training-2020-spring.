@@ -104,7 +104,7 @@
 
 	<delete id="delete">
 		DELETE FROM employee.employee2
-		WHERE employee_id = #{employee.id.value}
+		WHERE employee_id = #{employeeId.value}
 	</delete>
 
 

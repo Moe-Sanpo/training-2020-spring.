@@ -1,5 +1,7 @@
 package example.training.datasource.employee;
 
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +12,9 @@ import example.training.model.employee.EmployeeRepositry;
 import example.training.model.employee.criteria.EmployeeListCriteria;
 
 @Repository
-public class EmployeeDataSource implements EmployeeRepositry{
+public class EmployeeDataSource implements EmployeeRepositry,Serializable{
+
+	private static final long serialVersionUID = -2149597447870822898L;
 
 	@Autowired EmployeeMapper employeeMapper;
 
@@ -39,8 +43,9 @@ public class EmployeeDataSource implements EmployeeRepositry{
 	}
 
 	@Override
-	public void delete(Employee employee) {
-		employeeMapper.delete(employee);
+	public void delete(Integer employeeId) {
+		EmployeeId id = new EmployeeId(employeeId);
+		employeeMapper.delete(id);
 
 	}
 

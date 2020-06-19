@@ -1,14 +1,34 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 
-<title>タイトル</title>
+<title>社員情報</title>
 
 </head>
 <body>
 
-コンテンツ
+	<h1>社員情報</h1>
 
+		<table>
+			<tbody>
+			<tr>
+				<th>氏名</th>
+				<td th:text="${account.name.value}">太郎太郎</td>
+			</tr>
+			<tr>
+				<th>ログインID</th>
+				<td th:text="${account.loginId.value}">男性</td>
+			</tr>
+			<tr>
+				<th>パスワード</th>
+				<td th:text="${account.password.value}">1994-07-13</td>
+			</tr>
+			<tr>
+				<th>ロール</th>
+				<td th:text="${account.role}">システム開発本部</td>
+			</tr>
+			</tbody>
+		</table>
 </body>
 </html>

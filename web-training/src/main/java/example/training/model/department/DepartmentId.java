@@ -1,8 +1,13 @@
 package example.training.model.department;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 
-public class DepartmentId {
+public class DepartmentId implements Serializable {
+
+	private static final long serialVersionUID = 1057076468907700668L;
+
 	@NotNull
 	private Integer value;
 

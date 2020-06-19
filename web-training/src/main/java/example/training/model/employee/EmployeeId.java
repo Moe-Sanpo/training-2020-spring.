@@ -1,6 +1,11 @@
 package example.training.model.employee;
 
-public class EmployeeId {
+import java.io.Serializable;
+
+public class EmployeeId implements Serializable{
+
+	private static final long serialVersionUID = -5689528484459248455L;
+
 	private Integer value;
 
 	public EmployeeId(Integer value) {

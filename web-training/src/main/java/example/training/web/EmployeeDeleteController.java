@@ -12,24 +12,23 @@ import example.training.model.employee.Employee;
 import example.training.service.employee.EmployeeService;
 
 @Controller
-@RequestMapping("employee/delete")
+@RequestMapping("employee/delete/{employeeId:\\d+}")
 public class EmployeeDeleteController {
 
 	@Autowired
 	EmployeeService employeeService;
 
 
-	@GetMapping("{employeeId:\\d+}")
+	@GetMapping("")
 	public String confirm(@PathVariable Integer employeeId,Model model) {
 		Employee employee = employeeService.findById(employeeId);
 		model.addAttribute("employee", employee);
-		model.addAttribute("employeeId", employeeId);
 		return "employee/delete/confirm";
 	}
 
-	@PostMapping("execute")
-	public String delete(Employee employee) {
-		employeeService.delete(employee);
+	@PostMapping("/execute")
+	public String delete(@PathVariable Integer employeeId) {
+		employeeService.delete(employeeId);
 		return "redirect:/employee";
 	}
 
